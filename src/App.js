@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { Component } from 'react';
 // import { render } from '@testing-library/react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 // function App() {
 //   return (
@@ -11,31 +11,37 @@ import PropTypes from 'prop-types';
 //   );
 // }
 
-const App = () => {
-  const profiles = [
-    { name: 'Taro', age: 20 },
-    { name: 'Hanako', age: 15 },
-    { name: 'Yuko', age: 15 },
-    { name: 'Takashi', age: 3 },
-  ]
-  return (
-    <div>
-      {
-        profiles.map((profile, index) => {
-          return <User name={profile.name} age={profile.age} key={index} />
-        })
-      }
-    </div>
-  );
-}
+const App = () => (<Counter></Counter>)
 
-const User = (props) => {
-  return <div>Hi! I'm {props.name}! and {props.age} years old.</div>
-}
+class Counter extends Component {
+  constructor(props) {
+    super(props)
+    console.log(this.state)
+    this.state = { count: 0 }
+  }
 
-User.propTypes = {
-  name: PropTypes.string.isRequired,
-  age: PropTypes.number.isRequired
+  handlePlusButton = () => {
+    this.setState({ count: this.state.count + 1 })
+    console.log(this.state.count)
+  }
+
+  handleMinusButton = () => {
+    if (this.state.count > 0) {
+      this.setState({ count: this.state.count - 1 })
+    }
+    console.log(this.state.count)
+  }
+
+  render() {
+    {/* console.log(this.state.count) */ }
+    return (
+      <>
+        <div>Counter:{this.state.count}</div>
+        <button onClick={this.handlePlusButton}>+1</button>
+        <button onClick={this.handleMinusButton}>-1</button>
+      </>
+    );
+  }
 }
 
 export default App;
