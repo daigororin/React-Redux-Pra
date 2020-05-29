@@ -1,6 +1,6 @@
 import React from 'react';
 // import { render } from '@testing-library/react';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 // function App() {
 //   return (
@@ -33,9 +33,9 @@ const User = (props) => {
   return <div>Hi! I'm {props.name}! and {props.age} years old.</div>
 }
 
-User.propTypes = {
-  name: propTypes.string,
-  age: propTypes.number.isRequired
+User.PropTpes = {
+  name: PropTypes.string.isRequired,
+  age: PropTypes.number.isRequired
 }
 
 export default App;
